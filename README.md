@@ -5,6 +5,11 @@ Matlab导线网自动间接平差
 - 配套于武汉大学测绘学院测量平差仿真辅助教学系统V2.0
 - 仅限于平差课程学习与交流
 - Email: lijintao.alex@qq.com
+- 算法原理参考公众号文章[简单导线网间接平差MATLAB图形界面程序实现](https://mp.weixin.qq.com/s/8SJW1LWb01LJi-RKuX6NmQ)
+- 同时欢迎关注公众号`Akex`
+
+![image](https://user-images.githubusercontent.com/55226358/205282152-2b912cae-ae31-4b4f-8c16-b80a90b5ea36.png)
+
 
 ## 三种程序使用方式
 
