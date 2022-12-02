@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Measurement Ajustment for Traverse Network</label>
+  <version>5.0</version>
+  <type>app</type>
+  <packagedBy>(R2019a)</packagedBy>
+  <identifier>da47f224-230b-446b-8314-a7923b3b6340</identifier>
+  <summary>Automatic indirect adjustment of Traverse Network 导线网自动间接平差</summary>
+  <description>Mating with the SASATS(Survey Adjustment Simulation Aided Teaching System) v2.0 配套于武汉大学测绘学院测量平差仿真辅助教学系统V2.0
+Only for studying and researching 仅限于平差课程学习与交流
+©Li Jintao, School of Geodesy and Geomatics, Wuhan University 本程序已申请软件著作权 请勿将本程序置于商业用途 否则追究相关法律责任
+使用本程序期间请注意遵守相关政策及法规
+同意安装即说明已同意相关隐私与安全政策</description>
+  <createdBy name="Li Jintao 李锦韬" company="Wuhan University" email="lijintao@whu.edu.cn"/>
+  <image>resources/screenshot.png</image>
+  <icons>
+    <icon tag="0">resources/icon_48.png</icon>
+    <icon tag="1">resources/icon_24.png</icon>
+    <icon tag="2">resources/icon_16.png</icon>
+  </icons>
+</addonCore>
