@@ -4,9 +4,23 @@ Matlab导线网自动间接平差
 - 导线网自动间接平差
 - 配套于武汉大学测绘学院测量平差仿真辅助教学系统V2.0
 - 仅限于平差课程学习与交流
-- Email: lijintao@whu.edu.cn
+- Email: lijintao.alex@qq.com
 
-## 运营效果截图
+## 三种程序使用方式
+
+### 下载release包安装为Matlab App
+
+[Measurement Ajustment for Traverse Network.mlappinstall](https://github.com/AkexStar/Adjustment-Of-Traverse-Network/releases)
+
+### 下载m文件直接运行
+
+[MeasurementAjustmentforTraverseNetwork.m](https://github.com/AkexStar/Adjustment-Of-Traverse-Network/blob/main/MeasurementAjustmentforTraverseNetwork.m)
+
+### clone文件夹到本地用Matlab App Designer打开运行
+
+[main.mlapp](https://github.com/AkexStar/Adjustment-Of-Traverse-Network/tree/main/AppDesignerCode)
+
+## 运行效果截图
 
 ![screenshot](https://user-images.githubusercontent.com/55226358/205250148-a5a1e11a-8a2d-452a-a038-d036d27fde84.png)
 
