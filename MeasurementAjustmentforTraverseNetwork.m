@@ -731,17 +731,17 @@ classdef MeasurementAjustmentforTraverseNetwork < matlab.apps.AppBase
 
         % Menu selected function: Menu_6
         function Menu_6Selected(app, event)
-            app.TextArea.Value=["武汉大学测绘学院 ©李锦韬";"本程序已经申请软件著作权！";"侵权必究！";"仅限于平差学习用途";"请勿将本程序用于商业用途";"©Li Jintao, School of Geodesy and Geomatics, Wuhan University"];
+            app.TextArea.Value=["仅限于平差科研学习！";"请勿将本程序用于商业用途";"©Li Jintao, School of Geodesy and Geomatics, Wuhan University"];
         end
 
         % Menu selected function: Menu_7
         function Menu_7Selected(app, event)
-            app.TextArea.Value=["Email:";"lijintao@whu.edu.cn";"Github:";"https://github.com/Alex-Starry-2019"];
+            app.TextArea.Value=["Email:";"lijintao.alex@qq.com";"Github:";"https://github.com/AkexStar"];
         end
 
         % Menu selected function: Menu_5
         function Menu_5Selected(app, event)
-            app.TextArea.Value=["请将遇到的问题以邮件方式发送给lijintao@whu.edu.cn";"收到后第一时间回复您"];
+            app.TextArea.Value=["请将遇到的问题以邮件方式发送给lijintao.alex@qq.com";"收到后第一时间回复您"];
         end
 
         % Menu selected function: Menu_4
