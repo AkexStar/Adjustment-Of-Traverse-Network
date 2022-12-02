@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toolset id="user_apps_toolset" template="false">
+   <tool app_file_path="./" handler_class="com.mathworks.appmanagement.desktop.ToolboxToolSetExtensionHandler" id="da47f224-230b-446b-8314-a7923b3b6340" label="Measurement Ajustment for Traverse Network" toolset_id="user_apps_toolset">
+      <callback>matlab.apputil.run('MeasurementAjustmentforTraverseNetworkAPP')</callback>
+      <summary>Automatic indirect adjustment of Traverse Network 导线网自动间接平差</summary>
+      <description>Mating with the SASATS(Survey Adjustment Simulation Aided Teaching System) v2.0 配套于武汉大学测绘学院测量平差仿真辅助教学系统V2.0
+Only for studying and researching 仅限于平差课程学习与交流
+©Li Jintao, School of Geodesy and Geomatics, Wuhan University 本程序已申请软件著作权 请勿将本程序置于商业用途 否则追究相关法律责任
+使用本程序期间请注意遵守相关政策及法规
+同意安装即说明已同意相关隐私与安全政策</description>
+      <parent_tool id="my_apps" toolset_id="apps_toolset"/>
+   </tool>
+</toolset>
