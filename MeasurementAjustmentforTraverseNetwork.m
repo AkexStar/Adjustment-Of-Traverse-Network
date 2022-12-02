@@ -1,4 +1,4 @@
-classdef daoxianwang_exported < matlab.apps.AppBase
+classdef daoxianwang < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
@@ -65,8 +65,8 @@ classdef daoxianwang_exported < matlab.apps.AppBase
 
     
     properties (Access = public)
-        bian % ÿÿÿ
-        jiao % ÿÿÿ
+        bian % è¾¹æ•°æ®
+        jiao % è§’æ•°æ®
         N_angl
         N_line
         N
@@ -90,20 +90,20 @@ classdef daoxianwang_exported < matlab.apps.AppBase
                     fwj(a2,jiao(i,3)+1)=fwj(a1,a2)+jiao(i,4)+pi;
                     
                     fwj=fwjjs(app,a2,jiao(i,3)+1,jiao,fwj,N_angl);
-                  		%ÿÿÿÿ
+                  		%è¿­ä»£è®¡ç®—
                   		
                 elseif (jiao(i,3)+1)==a1 && (jiao(i,2)+1)==a2 && fwj(a2,(jiao(i,1)+1))==0
-                   	%ÿÿÿÿÿÿa1 && ÿÿÿÿÿÿa2 && ÿÿÿÿa2,ÿÿÿÿÿÿÿÿÿ
+                   	%è§‚æµ‹è§’ç»ˆç‚¹ä¸ºa1 && è§‚æµ‹è§’é¡¶ç‚¹ä¸ºa2 && æ–¹ä½è§’ï¼ˆa2,è§‚æµ‹è§’èµ·ç‚¹ï¼‰æœªè®¡ç®—
                     fwj(a2,jiao(i,1)+1)=fwj(a1,a2)-jiao(i,4)+pi;
                     fwj=fwjjs(app,a2,jiao(i,1)+1,jiao,fwj,N_angl);
                   		
                 elseif (jiao(i,1)+1)==a2 && (jiao(i,2)+1)==a1 && fwj(a1,(jiao(i,3)+1))==0
-                   	%ÿÿÿÿÿÿa2 && ÿÿÿÿÿÿa1 && ÿÿÿÿa1,ÿÿÿÿÿÿÿÿÿ
+                   	%è§‚æµ‹è§’èµ·ç‚¹ä¸ºa2 && è§‚æµ‹è§’é¡¶ç‚¹ä¸ºa1 && æ–¹ä½è§’ï¼ˆa1,è§‚æµ‹è§’èµ·ç‚¹ï¼‰æœªè®¡ç®—
                     fwj(a1,(jiao(i,3)+1))=fwj(a1,a2)+jiao(i,4);
                     fwj=fwjjs(app,a1,jiao(i,3)+1,jiao,fwj,N_angl);
                   		
                 elseif (jiao(i,2)+1)==a1 && (jiao(i,3)+1)==a2 && fwj(a1,(jiao(i,1)+1))==0
-                   	%ÿÿÿÿÿÿa2 && ÿÿÿÿÿÿa1 && ÿÿÿÿa1,ÿÿÿÿÿÿÿÿÿ
+                   	%è§‚æµ‹è§’ç»ˆç‚¹ä¸ºa2 && è§‚æµ‹è§’é¡¶ç‚¹ä¸ºa1 && æ–¹ä½è§’ï¼ˆa1,è§‚æµ‹è§’èµ·ç‚¹ï¼‰æœªè®¡ç®—
                     fwj(a1,(jiao(i,1)+1))=fwj(a1,a2)-jiao(i,4);
                     fwj=fwjjs(app,a1,(jiao(i,1)+1),jiao,fwj,N_angl);
                 end
@@ -112,7 +112,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
         function [X,Y] = zuobiao(app,A,AX,AY,bian,fwj,cc,X,Y,N_line)
            	X(A,1)=AX;
            	Y(A,1)=AY;
-           	%ÿÿÿÿÿÿÿ
+           	%å·²çŸ¥èµ·ç®—ç‚¹è¾“å…¥
            	for i=1:1:N_line
               		if (bian(i,2)+1==A) && (cc(bian(i,3)+1,1)==0)
                  			cc(bian(i,3)+1,1)=1;
@@ -129,24 +129,24 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	end
         end
         function [B,bian,jiao,X01,v1,xxm,v,P,sgm0,sgmdianmm]= dxw(app,A1,A1X,A1Y,A2,A2X,A2Y,bian,jiao,N,N_angl,N_line)
-           	%ÿÿÿÿÿ*****************************************
-           	%A1ÿ	X	Y
-           	%A2ÿ	X	Y
-           	%ÿÿÿÿ
-           	%bianÿ	ÿÿ	ÿÿÿ	ÿÿÿ	ÿÿÿÿ	ÿÿÿÿ
-           	%jiaoÿ ÿÿÿ	ÿÿÿ	ÿÿÿ	ÿÿÿÿ	ÿÿÿÿ
-           	%Nÿÿÿ
-           	%N_anglÿÿÿÿÿ
-           	%N_lineÿÿÿ
+           	%è¾“å…¥æ•°æ®ï¼š*****************************************
+           	%A1ç‚¹	X	Y
+           	%A2ç‚¹	X	Y
+           	%èµ·ç®—åŸºç¡€
+           	%bianè¾¹	è¾¹å·	èµ·å§‹ç‚¹	ç»ˆæ­¢ç‚¹	åŸå§‹æ•°æ®	å¹³å·®æ•°æ®
+           	%jiaoè§’ è§’èµ·ç‚¹	è§’é¡¶ç‚¹	è§’ç»ˆç‚¹	åŸå§‹æ•°æ®	å¹³å·®æ•°æ®
+           	%Næ€»ç‚¹æ•°
+           	%N_anglæ€»è§‚æµ‹è§’æ•°
+           	%N_lineæ€»è¾¹æ•°
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿÿÿ
+           	%è®¡ç®—æ–¹ä½è§’è¿‘ä¼¼å€¼
             %------------------------------------------------------------------------%
-           	fwj=zeros(N,N);%ÿÿNÿÿ
-           	%ÿÿÿ
-           	%A1ÿ1ÿÿÿÿÿÿÿÿÿÿ0ÿÿÿmatlabÿÿÿÿÿ1ÿÿ
-           	fwj(A1+1,A2+1)=atan2((A2Y-A1Y),(A2X-A1X));%ÿÿÿÿÿÿÿÿÿÿÿ
+           	fwj=zeros(N,N);%æ€»å…±Nä¸ªç‚¹
+           	%åˆå§‹åŒ–
+           	%A1åŠ 1çš„ç›®çš„ï¼šç‚¹å·å­˜å‚¨æ˜¯ä»0å¼€å§‹ï¼ŒmatlabçŸ©é˜µç´¢å¼•ä»1å¼€å§‹
+           	fwj(A1+1,A2+1)=atan2((A2Y-A1Y),(A2X-A1X));%è®¡ç®—å·²çŸ¥ç›¸é‚»ç‚¹çš„æ–¹ä½è§’
            	
            	fwj=fwjjs(app,A1+1,A2+1,jiao,fwj,N_angl);
            	for i=1:1:N
@@ -162,9 +162,9 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿ ÿÿÿÿÿ
+           	%è®¡ç®—è¿‘ä¼¼åæ ‡ å‡ä¸ºåˆ—å‘é‡
             %------------------------------------------------------------------------%
-           	%ÿÿ2ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+           	%å­˜å‚¨2æ¬¡ä¸åŒèµ·ç®—æ•°æ®è®¡ç®—åçš„åæ ‡å‡å€¼
            	X0=zeros(N,1);
            	Y0=zeros(N,1);
            	
@@ -173,17 +173,17 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	Y1=zeros(N,1);
            	X2=zeros(N,1);
            	Y2=zeros(N,1);
-           	%ÿÿÿ
+           	%åˆå§‹åŒ–
            	global cc;
             cc=zeros(N,1);
            	[X1,Y1]=zuobiao(app,A2+1,A2X,A2Y,bian,fwj,cc,X1,Y1,N_line);
-           	%ÿÿÿÿÿ*****************************************
-           	%ÿÿÿÿÿ	ÿÿÿX	ÿÿÿY ÿÿÿÿÿ	ÿÿÿÿÿ	ccÿÿÿÿ	ÿÿXÿÿÿ	ÿÿYÿÿÿ
+           	%è¾“å…¥æ•°æ®ï¼š*****************************************
+           	%èµ·ç®—ç‚¹åºå·	èµ·ç®—ç‚¹X	èµ·ç®—ç‚¹Y è¾¹åŸå§‹æ•°æ®	æ–¹ä½è§’æ•°æ®	ccæ ‡è®°æ•°ç»„	åæ ‡Xè¿‘ä¼¼å€¼	åæ ‡Yè¿‘ä¼¼å€¼
            	cc=zeros(N,1);
            	[X2,Y2]=zuobiao(app,A1+1,A1X,A1Y,bian,fwj,cc,X2,Y2,N_line);
            	
            	for i=1:1:N
-               	%ÿÿNÿÿ	ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ ÿÿÿÿ
+               	%æ€»è®¡Nä¸ªç‚¹	å¯¹ä¸¤æ¬¡ä¸åŒèµ·ç®—åŸºç¡€è®¡ç®—åçš„ç»“æœ è¿›è¡Œå¹³å‡
               		X0(i,1)=(X1(i,1)+X2(i,1))/2;
               		Y0(i,1)=(Y1(i,1)+Y2(i,1))/2;
            	end
@@ -191,48 +191,48 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	Y0(A1+1)=A1Y;
            	X0(A2+1)=A2X;
            	Y0(A2+1)=A2Y;
-           	%ÿÿÿÿÿÿÿ
+           	%è¿˜åŸå·²çŸ¥ç‚¹åæ ‡
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿÿÿÿÿ Nÿÿ ÿÿÿÿX,Y ÿÿN*2
+           	%åˆå§‹åŒ–åæ ‡å€¼çš„æ”¹æ­£æ•° Nä¸ªç‚¹ æ¯ä¸ªç‚¹æœ‰X,Y æ€»è®¡N*2
             %------------------------------------------------------------------------%
            	x0=zeros(N*2,1);
            	
            	for i=1:1:N
-              		x0(2*i-1,1)=X0(i,1);%ÿÿÿÿX
-              		x0(2*i,1)=Y0(i,1);	%ÿÿÿÿY
+              		x0(2*i-1,1)=X0(i,1);%å¥‡æ•°è¡Œå­˜X
+              		x0(2*i,1)=Y0(i,1);	%å¶æ•°è¡Œå­˜Y
            	end
             
-           	x0([2*A1+1,2*A1+2,2*A2+1,2*A2+2],:)=[];%ÿÿÿÿÿÿ
-           	%ÿÿÿÿÿÿX,Yÿÿÿÿÿ
+           	x0([2*A1+1,2*A1+2,2*A2+1,2*A2+2],:)=[];%å‚æ•°çš„è¿‘ä¼¼å€¼
+           	%åˆ é™¤å·²çŸ¥ç‚¹çš„X,Yåæ ‡æ”¹æ­£æ•°
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿÿÿÿÿÿÿ jiaoxishu
+           	%è®¡ç®—è§’åº¦è§‚æµ‹å€¼çš„ç³»æ•°çŸ©é˜µ jiaoxishu
             %------------------------------------------------------------------------%
-           	%ÿÿN_anglÿÿÿÿ
+           	%æ€»è®¡N_anglä¸ªè§‚æµ‹è§’
            	jiaoxishu=zeros(N_angl,N*2);
-           	%ÿÿjiaoxishu
+           	%è®¡ç®—jiaoxishu
            	
            	for i=1:1:N_angl
-              		j=jiao(i,2)+1;%ÿÿÿ ÿÿj
-              		k=jiao(i,3)+1;%ÿÿÿ ÿÿk
-              		h=jiao(i,1)+1;%ÿÿÿ ÿÿh
+              		j=jiao(i,2)+1;%è§‚æµ‹è§’ é¡¶ç‚¹j
+              		k=jiao(i,3)+1;%è§‚æµ‹è§’ ç»ˆç‚¹k
+              		h=jiao(i,1)+1;%è§‚æµ‹è§’ èµ·ç‚¹h
               		
               		rou=180*3600/pi;
-              		%ÿÿÿÿÿÿÿÿÿ
+              		%ç§’ä¸å¼§åº¦è½¬æ¢å‚æ•°Ï
               		
               		up1=rou*sin(fwj(j,k))/1000;
               		up2=-rou*cos(fwj(j,k))/1000;
-              		%ÿÿÿ ÿ/mm ÿÿÿÿ1000
+              		%å•ä½ä¸º â€³/mm æ‰€ä»¥é™¤ä»¥1000
               		
               		under1=sqrt((X0(k,1)-X0(j,1))^2+(Y0(k,1)-Y0(j,1))^2);
-              		%S0 ÿÿÿÿ
+              		%S0 è§‚æµ‹è¾¹é•¿
               		
               		a1=up1/under1;
               		b1=up2/under1;
-              		%ajk ÿ bjk
+              		%ajk ä¸ bjk
               		
               		up3=rou*sin(fwj(j,h))/1000;
               		up4=-rou*cos(fwj(j,h))/1000;
@@ -242,10 +242,10 @@ classdef daoxianwang_exported < matlab.apps.AppBase
               		a2=up3/under2;
               		b2=up4/under2;
               		
-              		%iÿÿÿÿÿ
+              		%iä¸ºæ–¹ç¨‹è¡Œå·
               		
-              		jiaoxishu(i,2*h-1)=a2;	%hÿxÿÿ
-              		jiaoxishu(i,2*h)=b2;	%hÿYÿÿ
+              		jiaoxishu(i,2*h-1)=a2;	%hç‚¹xç³»æ•°
+              		jiaoxishu(i,2*h)=b2;	%hç‚¹Yç³»æ•°
               		
               		jiaoxishu(i,2*j-1)=a1-a2;
               		jiaoxishu(i,2*j)=b1-b2;
@@ -257,28 +257,28 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿÿ bianxishu
+           	%è®¡ç®—è¾¹ç³»æ•°çŸ©é˜µ bianxishu
             %------------------------------------------------------------------------%
-           	%ÿÿN_lineÿÿ
-           	bian0=zeros(N_line,1);%ÿÿÿÿÿÿÿbian0
+           	%æ€»è®¡N_lineæ¡è¾¹
+           	bian0=zeros(N_line,1);%è®¡ç®—è¾¹é•¿è¿‘ä¼¼å€¼bian0
            	for  i=1:1:N_line
               		j1=bian(i,2);
-              		%ÿÿÿ
+              		%è¾¹èµ·ç‚¹
               		j2=bian(i,3);
-              		%ÿÿÿ
+              		%è¾¹ç»ˆç‚¹
               		bian0(i)=sqrt((X0(j1+1)-X0(j2+1))*(X0(j1+1)-X0(j2+1))+(Y0(j1+1)-Y0(j2+1))*(Y0(j1+1)-Y0(j2+1)));
            	end
            	
-           	bianxishu=zeros(N_line,N*2);%ÿÿÿÿÿÿÿÿÿÿ
+           	bianxishu=zeros(N_line,N*2);%è®¡ç®—è¾¹é•¿è§‚æµ‹å€¼çš„ç³»æ•°
            	for i=1:1:N_line
-              		j=bian(i,2);%ÿÿÿÿÿ
-              		k=bian(i,3);%ÿÿÿÿÿ
-              		up1=X0(k+1)-X0(j+1);	%ÿXjk
-              		up2=Y0(k+1)-Y0(j+1);	%ÿYjk
+              		j=bian(i,2);%è§‚æµ‹è¾¹èµ·ç‚¹
+              		k=bian(i,3);%è§‚æµ‹è¾¹ç»ˆç‚¹
+              		up1=X0(k+1)-X0(j+1);	%Î”Xjk
+              		up2=Y0(k+1)-Y0(j+1);	%Î”Yjk
               		
-              		under=bian0(i);	%ÿÿÿÿÿ
-              		m=up1/under;	%ÿX
-              		n=up2/under;	%ÿY
+              		under=bian0(i);	%è¾¹çš„è§‚æµ‹å€¼
+              		m=up1/under;	%Î”X
+              		n=up2/under;	%Î”Y
               		bianxishu(i,2*(j+1)-1)=-m;
               		bianxishu(i,2*(j+1))=-n;
               		bianxishu(i,2*(k+1)-1)=m;
@@ -287,65 +287,65 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿB
+           	%æ„é€ ç³»æ•°çŸ©é˜µB
             %------------------------------------------------------------------------%
            	B=[jiaoxishu;bianxishu];
            	B(N_angl+N_line,:)=[];
-           	%ÿÿÿN_angl+N_lingÿÿÿÿÿ
+           	%åˆ é™¤ç¬¬N_angl+N_lingè¡Œå·²çŸ¥è¾¹é•¿
            	B(:,[2*A1+1,2*A1+2,2*A2+1,2*A2+2])=[];
-           	%ÿÿÿÿÿÿÿÿÿÿÿÿÿ
+           	%åˆ é™¤ç³»æ•°çŸ©é˜µä¸­å·²çŸ¥ç‚¹çš„ç³»æ•°
            	
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿPÿÿ
+           	%è®¡ç®—PçŸ©é˜µ
             %------------------------------------------------------------------------%
            	P=zeros(N_angl+N_line,N_angl+N_line);
-           	%N_angl+N_line ÿÿÿÿ
+           	%N_angl+N_line æ€»è§‚æµ‹é‡
            	for i=1:1:N_angl
               		P(i,i)=1;
-              		%ÿÿÿÿÿÿÿ1
+              		%è§’åº¦è§‚æµ‹çš„æƒä¸º1
            	end
            	j=1;
            	for i=N_angl+1:1:N_angl+N_line
               		P(i,i)=4*12*12/bian(j,5)/bian(j,5);
-              		%ÿÿÿÿÿ
+              		%è¾¹é•¿è§‚æµ‹æƒ
               		j=j+1;
            	end
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿlÿÿ
+           	%è®¡ç®—lçŸ©é˜µ
             %------------------------------------------------------------------------%
            	l1=zeros(N_line,1);
-           	%ÿÿÿÿl1ÿÿÿ
+           	%è¾¹æ”¹æ­£æ•°l1åˆå§‹åŒ–
            	for i=1:N_line
-              		%bian0 ÿÿÿÿ
-              		%bian(i,5) ÿÿÿÿ
-              		l1(i,1)=(bian(i,5)-bian0(i))*1000;%ÿÿÿÿÿÿ
+              		%bian0 è¾¹è¿‘ä¼¼å€¼
+              		%bian(i,5) è¾¹è§‚æµ‹å€¼
+              		l1(i,1)=(bian(i,5)-bian0(i))*1000;%åŒ–å•ä½ä¸ºæ¯«ç±³
               		if l1(i,1)<0.0000001 && l1(i,1)>-0.0000001
                  			l1(i,1)=0;
-                 			%ÿÿÿÿÿÿ ÿÿ0
+                 			%ä½äºè¦æ±‚ç²¾åº¦ å–ä¸º0
               		end
            	end
            	
            	l1(N_line,:)=[];
-           	%ÿÿÿÿÿÿÿÿ
+           	%åˆ é™¤å·²çŸ¥ç‚¹å¯¹åº”è¾¹
            	
            	jiao01=zeros(N_angl,1);
            	jiao02=zeros(N_angl,1);
            	jiao0=zeros(N_angl,1);
            	
-           	for i=1:1:N_angl %ÿÿÿÿÿÿÿÿÿÿÿÿÿ
+           	for i=1:1:N_angl %ç”±è¿‘ä¼¼åæ ‡è®¡ç®—è¿‘ä¼¼è§‚æµ‹è§’åº¦
               		jiao01(i,1)=atan2((Y0(jiao(i,3)+1,1)-Y0(jiao(i,2)+1,1)),(X0(jiao(i,3)+1,1)-X0(jiao(i,2)+1,1)));
-              		%jkÿÿÿ
+              		%jkæ–¹ä½è§’
               		jiao02(i,1)=atan2((Y0(jiao(i,1)+1,1)-Y0(jiao(i,2)+1,1)),(X0(jiao(i,1)+1,1)-X0(jiao(i,2)+1,1)));
-              		%jhÿÿÿ
-              		%atan2 ÿÿ Y ÿ X ÿÿÿÿÿÿÿ
+              		%jhæ–¹ä½è§’
+              		%atan2 è¿”å› Y å’Œ X çš„å››è±¡é™åæ­£åˆ‡
               		jiao0(i,1)=jiao01(i,1)-jiao02(i,1);
               		%jk-jh=hjk
            	end
            	
-           	for i=1:1:N_angl %ÿÿÿÿÿÿ 0-2*pi
+           	for i=1:1:N_angl %å°†è§‚æµ‹è§’ç½®äº 0-2*pi
                 while jiao0(i,1)>2*pi
                     jiao0(i,1)=jiao0(i,1)-2*pi;
                 end
@@ -356,40 +356,40 @@ classdef daoxianwang_exported < matlab.apps.AppBase
            	
            	
            	l2=zeros(N_angl,1);
-           	for i=1:1:N_angl     %ÿÿÿÿÿÿÿÿlÿÿÿÿÿÿÿÿ
+           	for i=1:1:N_angl     %è®¡ç®—è§’åº¦è§‚æµ‹å€¼çš„lï¼Œå¹¶å°†å•ä½åŒ–ä¸ºç§’
               		l2(i,1)=(jiao(i,5)-jiao0(i))*3600*180/pi;
               		if l2(i,1)<0.00000001 && l2(i,1)>-0.00000001
                  			l2(i,1)=0;
               		end
            	end
            	
-           	l=[l2;l1];%ÿÿÿÿl
+           	l=[l2;l1];%æ„æˆçŸ©é˜µl
            	
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿ
+           	%åˆ—æ³•æ–¹ç¨‹è§£ç®—
             %------------------------------------------------------------------------%
            	P(N_angl+N_line,:)=[];
            	P(:,N_angl+N_line)=[];
-           	%ÿÿÿÿÿÿÿÿÿÿ
+           	%æ¸…é™¤æƒé˜µä¸­å¤šä½™å·²çŸ¥ç‚¹
            	NBB=B'*P*B;
            	W=B'*P*l;
-           	xx=NBB\W;%ÿÿmm
+           	xx=NBB\W;%å•ä½mm
            	v=B*xx-l;
-           	%ÿÿÿÿÿÿv ÿÿÿmm
+           	%è§‚æµ‹å€¼æ”¹æ­£æ•°v å•ä½ä¸ºmm
            	
            	xxm=xx.*0.001;
-           	%ÿÿÿÿÿÿÿÿÿÿÿ m
+           	%å°†åæ ‡æ”¹æ­£å€¼å•ä½è½¬åŒ–ä¸º m
             
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿ
+           	%ç²¾åº¦è¯„å®š
             %------------------------------------------------------------------------%
            	sgm0=sqrt((v'*P*v)/(N_angl+N_line-1-(N*2-4)));
-           	%ÿÿÿÿÿÿ n-t=n-u
-           	X01=x0+xxm;%ÿÿÿÿÿ
+           	%å•ä½æƒä¸­è¯¯å·® n-t=n-u
+           	X01=x0+xxm;%å‚æ•°å¹³å·®å€¼
            	
-           	v1=zeros(N_line+N_angl,1);%ÿÿÿÿ
+           	v1=zeros(N_line+N_angl,1);%è¾¹å¹³å·®å€¼
            	for i=N_angl+1:1:N_angl+N_line-1
               		v1(i,1)=bian(i-N_angl,5)+v(i,1)*0.001;
            	end
@@ -399,31 +399,31 @@ classdef daoxianwang_exported < matlab.apps.AppBase
               		v1(i,1)=jiao(i,5)+v(i,1)/3600*pi/180;
            	end
            	
-           	Qxx=inv(NBB);%ÿÿÿÿ
-           	Qx=zeros(N-2,1);%ÿxÿÿÿÿÿÿ
+           	Qxx=inv(NBB);%åå› æ•°é˜µ
+           	Qx=zeros(N-2,1);%å¯¹xåæ ‡æ±‚åå› æ•°
            	for i=1:1:N-2
               		Qx(i,1)=Qxx(2*i-1,2*i-1);
            	end
-           	Qy=zeros(N-2,1);%ÿyÿÿÿÿÿÿ
+           	Qy=zeros(N-2,1);%å¯¹yåæ ‡æ±‚åå› æ•°
            	for i=1:1:N-2
               		Qy(i,1)=Qxx(2*i,2*i);
            	end
            	
            	sgmdian=zeros(N-2,1);
-           	%ÿÿÿÿÿÿÿÿ ÿÿÿmm
+           	%æ¯ä¸ªç‚¹çš„ç‚¹ä½è¯¯å·® å•ä½ä¸ºmm
            	for i=1:1:N-2
               		sgmdian(i,1)=sgm0*sqrt(Qx(i,1)+Qy(i,1));
            	end
            	
            	sgmdianmm=zeros(N-2,1);
-           	%ÿÿÿÿÿÿÿÿ ÿÿÿm
+           	%æ¯ä¸ªç‚¹çš„ç‚¹ä½è¯¯å·® å•ä½ä¸ºm
            	for i=1:1:N-2
               		sgmdianmm(i,1)=sgmdian(i,1);
            	end
            	
             %************************************************************************%
             %^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^%
-           	%ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+           	%å°†æ”¹æ­£ç»“æœèµ‹å€¼ç»™åŸå§‹æ•°æ®çŸ©é˜µè¿›è¡Œè¿­ä»£
             %------------------------------------------------------------------------%
            	for i=1:1:N_line-1
               		bian(i,4)=bian(i,5)+v(i+N_angl,1)*0.001;
@@ -444,8 +444,8 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.count=0;
             app.bianLamp.Color="red";
                 app.jiaoLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿ";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿ";
+                app.biantipEditField.Value="è¯·ç²˜è´´è¾¹æ•°æ®ï¼";
+                app.jiaotipEditField.Value="è¯·ç²˜è´´è§’æ•°æ®ï¼";
                 app.A1EditField.Value=0;
                 app.A2EditField.Value=0;
                 app.A1xEditField.Value=0;
@@ -462,58 +462,58 @@ classdef daoxianwang_exported < matlab.apps.AppBase
         % Button pushed function: computeButton
         function computeButtonPushed(app, event)
             if app.bianLamp.Color(1,1)==1 || app.jiaoLamp.Color(1,1)==1
-                app.TextArea.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+                app.TextArea.Value="æœªè¯»å…¥æ•°æ®æˆ–æ•°æ®æ ¼å¼ä¸æ­£ç¡®ï¼";
                 return;
             end
-            %ÿÿÿÿÿÿÿ ÿÿÿÿÿÿÿÿÿ
+            %æ•°æ®æœªæˆåŠŸè¾“å…¥ æŠ¥é”™å¹¶åœæ­¢ç»§ç»­è¿è¡Œ
             try
-                app.A1=app.A1EditField.Value;%A1ÿÿ
-                app.A2=app.A2EditField.Value;%A2ÿÿ
-                %A1 A2ÿÿ
+                app.A1=app.A1EditField.Value;%A1ç‚¹å·
+                app.A2=app.A2EditField.Value;%A2ç‚¹å·
+                %A1 A2åæ ‡
                 app.A1X=app.A1xEditField.Value;
                 app.A1Y=app.A1yEditField.Value;
                 app.A2X=app.A2xEditField.Value;
                 app.A2Y=app.A2yEditField.Value;
                 
                 app.N=max(app.jiao(:,1:3),[],'all','omitnan')+1;
-                %Nÿÿÿ
+                %Næ€»ç‚¹æ•°
                 app.N_angl=length(app.jiao(:,1));
-                %ÿÿÿÿÿ
+                %æ€»è§‚æµ‹è§’æ•°
                 
                 knownLine=sqrt((app.A1X-app.A2X)^2+(app.A1Y-app.A2Y)^2);
                 app.N_line=length(app.bian(:,1));
                 app.bian=[[1:1:app.N_line]',app.bian];
-                %ÿÿÿÿÿ ÿÿÿÿÿ
+                %è®¡ç®—å·²çŸ¥è¾¹ å¹¶åŠ å…¥æ•°æ®
                 app.bian=[app.bian;[app.N_line+1, app.A1, app.A2, knownLine, knownLine]];
-                %ÿÿÿÿÿ
+                %æ·»åŠ å·²çŸ¥è¾¹
                 app.N_line=app.N_line+1;
-                %ÿÿÿ
+                %æ€»è¾¹æ•°
                 
                 i=1;
                 app.count=1;
-                while i==1%ÿÿÿÿÿÿ
-                   	%dxw ÿÿÿÿÿÿÿ
+                while i==1%è¿›è¡Œè¿­ä»£è¿ç®—
+                   	%dxw å¯¼çº¿ç½‘å¹³å·®å‡½æ•°
                    	[~,app.bian,app.jiao,~,~,xxm1,~,~,~,~]=dxw(app,app.A1,app.A1X,app.A1Y,app.A2,app.A2X,app.A2Y,app.bian,app.jiao,app.N,app.N_angl,app.N_line);
                     
-                   	%ÿÿÿÿÿ
-                   	%A1ÿ	X	Y
-                   	%A2ÿ	X	Y
-                   	%bianÿÿ	ÿÿ	ÿÿÿ	ÿÿÿ	ÿÿÿÿÿÿ	ÿÿÿÿÿÿ
-                   	%jiaoÿÿ ÿÿÿ	ÿÿÿ	ÿÿÿ	ÿÿÿÿÿÿ	ÿÿÿÿÿÿ
-                    %N ÿÿÿ
-                    %N_angl ÿÿÿÿÿ
-                    %N_line ÿÿÿ
+                   	%è¾“å…¥æ•°æ®ï¼š
+                   	%A1ç‚¹	X	Y
+                   	%A2ç‚¹	X	Y
+                   	%bianè¾¹ï¼š	è¾¹å·	èµ·å§‹ç‚¹	ç»ˆæ­¢ç‚¹	å¹³å·®è¿­ä»£æ•°æ®	åŸå§‹æ•°æ®å¤‡ä»½
+                   	%jiaoè§’ï¼š è§’èµ·ç‚¹	è§’é¡¶ç‚¹	è§’ç»ˆç‚¹	å¹³å·®è¿­ä»£æ•°æ®	åŸå§‹æ•°æ®å¤‡ä»½
+                    %N æ€»ç‚¹æ•°
+                    %N_angl è§‚æµ‹è§’æ•°é‡
+                    %N_line è¾¹æ•°é‡
                     
-                   	%ÿÿÿÿÿ
+                   	%è¾“å‡ºæ•°æ®ï¼š
                    	%bian
                    	%jiao
-                   	%Xÿÿÿÿÿ
-                   	%L	ÿÿÿÿÿÿÿÿÿ
-                   	%xxm ÿÿÿÿÿ ÿmÿÿÿ
-                   	%V	ÿÿÿ
-                   	%P	ÿÿ
-                   	%sgm0 ÿÿÿÿÿÿ
-                    %sgmdianmi	ÿÿÿÿÿÿÿÿ ÿÿÿm
+                   	%Xå‚æ•°å¹³å·®å€¼
+                   	%L	è§‚æµ‹è¾¹ä¸è§’çš„å¹³å·®å€¼
+                   	%xxm åæ ‡æ”¹æ­£æ•° ä»¥mä¸ºå•ä½
+                   	%V	æ”¹æ­£æ•°
+                   	%P	æƒé˜µ
+                   	%sgm0 å•ä½æƒä¸­è¯¯å·®
+                    %sgmdianmi	æ¯ä¸ªç‚¹çš„ç‚¹ä½è¯¯å·® å•ä½ä¸ºm
                     
                    	[B,app.bian,app.jiao,X,L,xxm2,V,P,sgm0,sgmdianmm]=dxw(app,app.A1,app.A1X,app.A1Y,app.A2,app.A2X,app.A2Y,app.bian,app.jiao,app.N,app.N_angl,app.N_line);
                     app.data{app.count,1}=B;
@@ -536,43 +536,43 @@ classdef daoxianwang_exported < matlab.apps.AppBase
                 Dll2=diag(Dll);
                 sgmll=sqrt(Dll2);
                 [sgmllmax,index]=max(sgmll(app.N_angl+1:app.N_angl+app.N_line-1,1));
-                %ÿÿÿÿÿÿÿ ÿÿÿmm
+                %æ±‚æœ€å¼±è¾¹ä¸­è¯¯å·® å•ä½ä¸ºmm
                 sgmllmax=sgmllmax/1000/app.bian(index,4);
-                %ÿÿÿÿÿÿÿÿÿ
+                %æ±‚æœ€å¼±è¾¹ç›¸å¯¹ä¸­è¯¯å·®
                 
                 L(1:app.N_angl,1)=rad2deg(L(1:app.N_angl,1));
-                %ÿÿÿÿÿÿÿÿÿÿÿÿ
+                %è§‚æµ‹è§’å¹³å·®å€¼å¼§åº¦è½¬æ¢ä¸ºåº¦
                 dushu1=L(1:app.N_angl,1);
-                dushu2=string(fix(dushu1))+"°";
+                dushu2=string(fix(dushu1))+"Â°";
                 dushu1=(dushu1-fix(dushu1))*60;
-                dushu2=dushu2+string(fix(dushu1))+"ÿ";
+                dushu2=dushu2+string(fix(dushu1))+"â€²";
                 dushu1=(dushu1-fix(dushu1))*60;
                 dushu1=round(dushu1,1);
-                %ÿÿÿÿÿÿÿÿÿÿ1ÿ
-                dushu(:,2)=dushu2+string(dushu1)+"ÿ";
-                dushu(:,1)="ÿ"+string(app.jiao(:,1))+string(app.jiao(:,2))+string(app.jiao(:,3))+"=";
-                %dushuÿÿÿÿÿÿÿ ÿÿÿÿÿÿ
+                %å–ä½ç²¾åº¦ä¸ºç§’å°æ•°ç‚¹å1ä½
+                dushu(:,2)=dushu2+string(dushu1)+"â€³";
+                dushu(:,1)="âˆ "+string(app.jiao(:,1))+string(app.jiao(:,2))+string(app.jiao(:,3))+"=";
+                %dushuå­˜å‚¨è§’åº¦å¹³å·®å€¼ å•ä½ä¸ºåº¦åˆ†ç§’
                 
                 L(app.N_angl+1:app.N_angl+app.N_line,1)=round(L(app.N_angl+1:app.N_angl+app.N_line,1),3);
-                %L(N_angl+1:N_angl+N_line,1)ÿÿÿÿÿÿÿÿÿÿÿÿÿ3ÿÿÿÿÿm
+                %L(N_angl+1:N_angl+N_line,1)å‚¨å­˜è¾¹è§‚æµ‹å¹³å·®å€¼å–å°æ•°ç‚¹å3ä½ï¼Œå•ä½ä¸ºm
                 
                 V(1:app.N_angl)=round(V(1:app.N_angl),1);
                 dushu(:,3)=string(V(1:app.N_angl,1));
-                %dushu(:,3)ÿÿÿÿÿÿÿÿÿÿÿÿ1ÿÿÿÿÿÿ
+                %dushu(:,3)è§‚æµ‹è§’æ”¹æ­£æ•°ï¼Œå–å°æ•°ç‚¹å1ä½ï¼Œå•ä½ä¸ºâ€³
                 V(1+app.N_angl:app.N_angl+app.N_line-1,1)=round(V(1+app.N_angl:app.N_angl+app.N_line-1,1)/1000,3);
-                %ÿÿÿÿÿÿÿÿÿÿÿÿ3ÿÿÿÿÿm
+                %è§‚æµ‹è¾¹æ”¹æ­£æ•°ï¼Œå–å°æ•°ç‚¹å3ä½ï¼Œå•ä½ä¸ºm
                 bianchang(:,1)=string(app.bian(:,2));
                 bianchang(:,2)=string(app.bian(:,3));
                 bianchang(:,3)=string(L(app.N_angl+1:app.N_angl+app.N_line,1));
                 bianchang(1:app.N_line-1,4)=string(V(app.N_angl+1:app.N_angl+app.N_line-1,1));
-                %bianchangÿÿÿÿÿÿÿÿÿÿ ÿÿÿ
+                %bianchangå‚¨å­˜è¾¹ç¼–å·ä¸è¾¹å¹³å·®å€¼ æ”¹æ­£æ•°
                 
                 X=round(X,3);
-                %ÿÿÿÿÿÿÿÿÿÿÿ
+                %åæ ‡æ”¹æ­£æ•°å–å°æ•°ç‚¹åä½
                 tempX=zeros(app.N-2,1);
                 tempY=zeros(app.N-2,1);
                 cla(app.UIAxes);
-                %ÿÿÿÿÿ
+                %åæ ‡åŒºæ¸…é›¶
                 hold (app.UIAxes,"on");
                 for i=1:app.N-2
                     tempX(i)=round(X(2*i-1,1),3);
@@ -587,61 +587,61 @@ classdef daoxianwang_exported < matlab.apps.AppBase
                 for i=0:app.N-3
                     if j-1==app.A1
                         j=j+1;
-                        %ÿÿÿÿÿ
+                        %è·³è¿‡å·²çŸ¥ç‚¹
                     end
                     if j-1==app.A2
                         j=j+1;
-                        %ÿÿÿÿÿ
+                        %è·³è¿‡å·²çŸ¥ç‚¹
                     end
                     coor(j,1)=X((i+1)*2-1,1);
                     coor(j,2)=X((i+1)*2,1);
                     j=j+1;
                 end
-                %coor ÿÿÿÿÿÿÿÿ ÿÿÿÿÿÿÿÿÿÿ
+                %coor è®°å½•æ‰€æœ‰ç‚¹çš„åæ ‡ æŒ‰ç…§è¡Œå·ä»å°åˆ°å¤§æ’åˆ—
                 plot(app.UIAxes,tempY,tempX,'bo');
                 plot(app.UIAxes,app.A1Y,app.A1X,'r^');
                 plot(app.UIAxes,app.A2Y,app.A2X,'r^');
-                %ÿÿ
+                %ç”»ç‚¹
                 for i=1:app.N_line
                     plot(app.UIAxes,[coor(app.bian(i,2)+1,2),coor(app.bian(i,3)+1,2)],[coor(app.bian(i,2)+1,1),coor(app.bian(i,3)+1,1)],'-c');
                 end
-                %ÿÿ
+                %è¿è¾¹
                 for i=1:app.N
                     text(app.UIAxes,coor(i,2)+5,coor(i,1)+5,string(i-1));
                 end
-                %ÿÿÿÿ
+                %æ ‡è®°ç‚¹å·
                 
-                %ÿÿÿÿÿÿÿ
-                app.TextArea.Value="*************ÿÿÿÿÿ*************";
+                %æˆæœæ•°æ®æ˜¾ç¤ºï¼š
+                app.TextArea.Value="*************è§’åº¦å¹³å·®å€¼*************";
                 for i=1:app.N_angl
                     app.TextArea.Value=[app.TextArea.Value;dushu(i,1)+dushu(i,2)];
                 end
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************è§’åº¦æ”¹æ­£æ•°*************"];
                 for i=1:app.N_angl
                     app.TextArea.Value=[app.TextArea.Value;dushu(i,3)];
                 end
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************è¾¹é•¿å¹³å·®å€¼*************"];
                 for i=1:app.N_line-1
                     app.TextArea.Value=[app.TextArea.Value;bianchang(i,1)+"--"+bianchang(i,2)+"    "+bianchang(i,3)];
                 end
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************è¾¹é•¿æ”¹æ­£æ•°*************"];
                 for i=1:app.N_line-1
                     app.TextArea.Value=[app.TextArea.Value;bianchang(i,1)+"--"+bianchang(i,2)+"    "+bianchang(i,4)];
                 end
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************åæ ‡å¹³å·®å€¼*************"];
                 for i=1:(app.N)
                     app.TextArea.Value=[app.TextArea.Value;string(i-1)+"  X:"+string(coor(i,1))+"  Y:"+string(coor(i,2))];
                 end
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************ç‚¹ä½ä¸­è¯¯å·®*************"];
                 for i=1:(app.N-2)
                     app.TextArea.Value=[app.TextArea.Value;string(round(sgmdianmm(i,1),3))];
                 end
                 
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿÿÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************å¹³å·®åæœ€å¼±è¾¹ç›¸å¯¹ä¸­è¯¯å·®*************"];
                 app.TextArea.Value=[app.TextArea.Value;string(round(sgmllmax,5))+" (1/"+string(round(1/sgmllmax,0))+")"];
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿÿÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************å¹³å·®åæœ€å¼±ç‚¹ç‚¹ä½ä¸­è¯¯å·®*************"];
                 app.TextArea.Value=[app.TextArea.Value;string(round(max(sgmdianmm,[],'all','omitnan'),3))];
-                app.TextArea.Value=[app.TextArea.Value;"*************ÿÿÿÿÿÿÿÿÿ*************"];
+                app.TextArea.Value=[app.TextArea.Value;"*************å¹³å·®åå•ä½æƒä¸­è¯¯å·®*************"];
                 app.TextArea.Value=[app.TextArea.Value;string(round(sgm0,3))];
                 
                 app.Spinner.Limits=[1,app.count-1];
@@ -653,11 +653,11 @@ classdef daoxianwang_exported < matlab.apps.AppBase
                 app.UITable.Data=app.data{value,4};
                 app.UITablex.Data=app.data{value,5};
                 
-                %ÿÿÿÿÿÿÿ ÿÿÿÿÿÿÿÿ
+                %æ•°æ®é‡æ–°åˆå§‹åŒ– ä¸ºä¸‹æ¬¡è®¡ç®—åšå‡†å¤‡
                 app.bianLamp.Color="red";
                 app.jiaoLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+                app.biantipEditField.Value="è‹¥éœ€é‡æ–°è®¡ç®—è¯·é‡æ–°è¯»å…¥è¾¹æ•°æ®ï¼";
+                app.jiaotipEditField.Value="è‹¥éœ€é‡æ–°è®¡ç®—è¯·é‡æ–°è¯»å…¥è§’æ•°æ®ï¼";
                 app.A1EditField.Value=0;
                 app.A2EditField.Value=0;
                 app.A1xEditField.Value=0;
@@ -672,8 +672,8 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             catch ME
                 app.bianLamp.Color="red";
                 app.jiaoLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+                app.biantipEditField.Value="è‹¥éœ€é‡æ–°è®¡ç®—è¯·é‡æ–°è¯»å…¥è¾¹æ•°æ®ï¼";
+                app.jiaotipEditField.Value="è‹¥éœ€é‡æ–°è®¡ç®—è¯·é‡æ–°è¯»å…¥è§’æ•°æ®ï¼";
                 app.A1EditField.Value=0;
                 app.A2EditField.Value=0;
                 app.A1xEditField.Value=0;
@@ -731,7 +731,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
 
         % Menu selected function: Menu_6
         function Menu_6Selected(app, event)
-            app.TextArea.Value=["ÿÿÿÿÿÿÿÿ ©ÿÿÿ";"ÿÿÿÿÿÿÿÿÿÿÿÿÿ";"ÿÿÿÿÿ";"ÿÿÿÿÿÿÿÿÿ";"ÿÿÿÿÿÿÿÿÿÿÿÿ";"©Li Jintao, School of Geodesy and Geomatics, Wuhan University"];
+            app.TextArea.Value=["æ­¦æ±‰å¤§å­¦æµ‹ç»˜å­¦é™¢ Â©æé”¦éŸ¬";"æœ¬ç¨‹åºå·²ç»ç”³è¯·è½¯ä»¶è‘—ä½œæƒï¼";"ä¾µæƒå¿…ç©¶ï¼";"ä»…é™äºå¹³å·®å­¦ä¹ ç”¨é€”";"è¯·å‹¿å°†æœ¬ç¨‹åºç”¨äºå•†ä¸šç”¨é€”";"Â©Li Jintao, School of Geodesy and Geomatics, Wuhan University"];
         end
 
         % Menu selected function: Menu_7
@@ -741,58 +741,58 @@ classdef daoxianwang_exported < matlab.apps.AppBase
 
         % Menu selected function: Menu_5
         function Menu_5Selected(app, event)
-            app.TextArea.Value=["ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿlijintao@whu.edu.cn";"ÿÿÿÿÿÿÿÿÿÿ"];
+            app.TextArea.Value=["è¯·å°†é‡åˆ°çš„é—®é¢˜ä»¥é‚®ä»¶æ–¹å¼å‘é€ç»™lijintao@whu.edu.cn";"æ”¶åˆ°åç¬¬ä¸€æ—¶é—´å›å¤æ‚¨"];
         end
 
         % Menu selected function: Menu_4
         function Menu_4Selected(app, event)
             app.TextArea.Value=[
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿV2.0";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
+                "æœ¬ç¨‹åºé…å¥—äºæ­¦æ±‰å¤§å­¦æµ‹ç»˜å­¦é™¢æµ‹é‡å¹³å·®ä»¿çœŸè¾…åŠ©æ•™å­¦ç³»ç»ŸV2.0";...
+                "æœ¬ç¨‹åºä¸­â€œè¾¹æ•°æ®â€æŒ‡è§‚æµ‹è¾¹è¾¹é•¿æ•°æ®";...
+                "æœ¬ç¨‹åºä¸­â€œè§’æ•°æ®â€æŒ‡è§‚æµ‹è§’è§’åº¦æ•°æ®";...
                 "";...
-                "ÿÿÿÿÿÿÿ";...
-                "ÿ1ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿ2ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿ3ÿÿÿÿÿÿÿÿ ÿÿÿÿÿÿÿÿÿÿ2ÿÿÿÿÿÿ";...
-                "ÿ4ÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿ5ÿÿÿÿÿÿÿÿÿ";...
+                "ä½¿ç”¨æµç¨‹å¦‚ä¸‹ï¼š";...
+                "ã€‹1ã€å°†è§’æ•°æ®ä¸è¾¹æ•°æ®ç²˜è´´è¿›æŒ‡å®šæ–‡æœ¬æ¡†";...
+                "ã€‹2ã€ç‚¹å‡»è¯»å…¥è§’æ•°æ®ä¸è¾¹æ•°æ®æŒ‰é’®";...
+                "ã€‹3ã€è‹¥æ•°æ®è¯»å…¥æˆåŠŸ æç¤ºç¯å˜ç»¿ä¸”è‡ªåŠ¨æ˜¾ç¤º2ä¸ªå·²çŸ¥ç‚¹ç‚¹å·";...
+                "ã€‹4ã€å¡«å…¥å·²çŸ¥ç‚¹åæ ‡æ•°æ®";...
+                "ã€‹5ã€ç‚¹å‡»å¹³å·®è®¡ç®—æŒ‰é’®";...
                 "";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿ(m),ÿÿÿÿÿÿÿÿÿÿÿÿ";...
+                "è¾¹æ•°æ®è¯·ç²˜è´´è¿›ä¸Šæ–¹æŒ‡å®šåŒºåŸŸå†…";...
+                "å†…å®¹åŒ…å«è¾¹å¯¹åº”ç‚¹å·ä¸è¾¹é•¿(m),ä¸‹é¢ä¸ºæ ·ä¾‹æ•°æ®æ ¼å¼ç¤ºä¾‹ï¼š";...
                 "0 -- 1	97.711";...
                 "1 -- 2	69.81";...
                 "2 -- 3	78.536";...
                 "3 -- 4	72.12";...
                 "4 -- 5	67.714";...
-                "5 -- 6	ÿÿÿ";...
+                "5 -- 6	å·²çŸ¥å€¼";...
                 "6 -- 0	65.505";...
                 "3 -- 7	77.436";...
                 "7 -- 8	40.1";...
                 "8 -- 6	68.199";...
                 "";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
-                "ÿÿÿÿÿÿÿÿÿÿÿ(°ÿÿ),ÿÿÿÿÿÿÿÿÿÿÿ:";...
-                "ÿ0 1 2	236°00ÿ33.5ÿ";...
-                "ÿ1 0 6	130°33ÿ18.9ÿ";...
-                "ÿ1 2 3	225°51ÿ8.5ÿ";...
-                "ÿ2 3 4	231°45ÿ21ÿ";...
-                "ÿ2 3 7	281°25ÿ11.9ÿ";...
-                "ÿ3 4 5	213°46ÿ6.1ÿ";...
-                "ÿ4 3 7	49°40ÿ8.4ÿ";...
-                "ÿ4 5 6	246°24ÿ48ÿ";...
-                "ÿ5 6 0	236°45ÿ44.4ÿ";...
-                "ÿ5 6 8	323°59ÿ33.9ÿ";...
-                "ÿ0 6 8	87°13ÿ30.7ÿ";...
-                "ÿ3 7 8	174°53ÿ58.8ÿ";...
-                "ÿ7 8 6	199°35ÿ58.9ÿ";...
+                "è§’æ•°æ®è¯·ç²˜è´´è¿›ä¸Šæ–¹æŒ‡å®šåŒºåŸŸå†…";...
+                "å†…å®¹åŒ…å«å¯¹åº”è§’å·ä¸è§’åº¦(Â°â€²â€³),ä¸‹é¢ä¸ºæ ·ä¾‹æ•°æ®æ ¼å¼ç¤ºä¾‹:";...
+                "âˆ 0 1 2	236Â°00â€²33.5â€³";...
+                "âˆ 1 0 6	130Â°33â€²18.9â€³";...
+                "âˆ 1 2 3	225Â°51â€²8.5â€³";...
+                "âˆ 2 3 4	231Â°45â€²21â€³";...
+                "âˆ 2 3 7	281Â°25â€²11.9â€³";...
+                "âˆ 3 4 5	213Â°46â€²6.1â€³";...
+                "âˆ 4 3 7	49Â°40â€²8.4â€³";...
+                "âˆ 4 5 6	246Â°24â€²48â€³";...
+                "âˆ 5 6 0	236Â°45â€²44.4â€³";...
+                "âˆ 5 6 8	323Â°59â€²33.9â€³";...
+                "âˆ 0 6 8	87Â°13â€²30.7â€³";...
+                "âˆ 3 7 8	174Â°53â€²58.8â€³";...
+                "âˆ 7 8 6	199Â°35â€²58.9â€³";...
                 "";...
-                "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";...
+                "å·²çŸ¥ç‚¹æ•°æ®éœ€æ‰‹åŠ¨å¡«å…¥ï¼Œä¸‹é¢ä¸ºæ ·ä¾‹æ•°æ®ï¼š";...
                 "5 x=164.668(m), y=112.313(m)";...
                 "6 x=274.722(m), y=136.706(m)";...
                 "";...
-                "ÿÿÿÿÿÿÿÿÿÿ1/2000";...
-                "ÿÿÿÿÿÿÿ12ÿ";...
+                "æœ¬ç¨‹åºé»˜è®¤æµ‹è¾¹è¯¯å·®ï¼š1/2000";...
+                "é»˜è®¤æµ‹è§’è¯¯å·®ï¼š12â€³";...
                 ];
         end
 
@@ -806,7 +806,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             
             if app.biansrcTextArea.Value==""
                 app.bianLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+                app.biantipEditField.Value="è¾¹æ•°æ®ä¸ºç©ºï¼è¯·å°†è¾¹æ•°æ®ç²˜è´´å…¥æŒ‡å®šä½ç½®";
                 return;
             end
             
@@ -818,12 +818,12 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             [~,n]=size(bian_temp1);
             if n<4
                 app.bianLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿHelp->ÿÿÿÿ";
+                app.biantipEditField.Value="è¾¹æ•°æ®æ ¼å¼é”™è¯¯ï¼è¯·é‡è¯•æˆ–å‚è€ƒHelp->ç¨‹åºè¯´æ˜";
                 return;
             end
             if isempty(bian_temp1{1,2})
                 app.bianLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿHelp->ÿÿÿÿ";
+                app.biantipEditField.Value="è¾¹æ•°æ®è¯»å…¥å¤±è´¥ï¼è¯·é‡è¯•æˆ–å‚è€ƒHelp->ç¨‹åºè¯´æ˜";
                 return;
             end
             bian_temp2=str2double(bian_temp1{1,4});
@@ -832,7 +832,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             index=isnan(bian_temp2);
             if length(index)<2
                 app.bianLamp.Color="red";
-                app.biantipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿHelp->ÿÿÿÿ";
+                app.biantipEditField.Value="è¾¹æ•°æ®æ ¼å¼é”™è¯¯æˆ–å·²çŸ¥ç‚¹å°‘äºä¸¤ä¸ªï¼è¯·é‡è¯•æˆ–å‚è€ƒHelp->ç¨‹åºè¯´æ˜";
                 return;
             end
             app.A1EditField.Value=app.bian(index,1);
@@ -840,7 +840,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.bian(index,:)=[];
             app.bian=[app.bian,app.bian(:,3)];
             app.bianLamp.Color="green";
-            app.biantipEditField.Value="ÿÿÿÿÿÿÿÿ";
+            app.biantipEditField.Value="è¾¹æ•°æ®è¯»å…¥æˆåŠŸï¼";
             
             
             
@@ -851,7 +851,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
         function jiaoButtonPushed(app, event)
             if app.jiaosrcTextArea.Value==""
                 app.jiaoLamp.Color="red";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+                app.jiaotipEditField.Value="è§’æ•°æ®ä¸ºç©ºï¼è¯·å°†è§’æ•°æ®ç²˜è´´å…¥æŒ‡å®šä½ç½®";
                 return;
             end
             
@@ -864,19 +864,19 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             [~,n]=size(jiao_temp1);
             if n<10
                 app.jiaoLamp.Color="red";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿHelp->ÿÿÿÿ";
+                app.jiaotipEditField.Value="è§’æ•°æ®æ ¼å¼é”™è¯¯ï¼è¯·é‡è¯•æˆ–å‚è€ƒHelp->ç¨‹åºè¯´æ˜";
                 return;
             end
             if isempty(jiao_temp1{1,2})
                 app.jiaoLamp.Color="red";
-                app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿÿÿÿÿÿÿHelp->ÿÿÿÿ";
+                app.jiaotipEditField.Value="è§’æ•°æ®è¯»å…¥å¤±è´¥ï¼è¯·é‡è¯•æˆ–å‚è€ƒHelp->ç¨‹åºè¯´æ˜";
                 return;
             end
             jiao_temp2=(jiao_temp1{:,5}+jiao_temp1{:,7}./60+jiao_temp1{:,9}./3600)/180*pi;
             app.jiao=[];
             app.jiao=[jiao_temp1{1,2},jiao_temp1{1,3},jiao_temp1{1,4},jiao_temp2,jiao_temp2];
             app.jiaoLamp.Color="green";
-            app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿ";
+            app.jiaotipEditField.Value="è§’æ•°æ®è¯»å…¥æˆåŠŸï¼";
             
         end
 
@@ -895,7 +895,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.biantipEditField.Value="ÿÿÿÿÿÿÿÿ"+filename;
+            app.biantipEditField.Value="è¾¹æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Menu selected function: Menu_9
@@ -907,7 +907,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.jiaotipEditField.Value="ÿÿÿÿÿÿÿÿ"+filename;
+            app.jiaotipEditField.Value="è§’æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Value changed function: Spinner
@@ -939,7 +939,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.TextArea.Value="ÿÿÿÿÿÿÿ"+filename;
+            app.TextArea.Value="æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Menu selected function: PMenu
@@ -951,7 +951,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.TextArea.Value="ÿÿÿÿÿÿÿ"+filename;
+            app.TextArea.Value="æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Menu selected function: lMenu
@@ -963,7 +963,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.TextArea.Value="ÿÿÿÿÿÿÿ"+filename;
+            app.TextArea.Value="æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Menu selected function: VMenu
@@ -975,7 +975,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.TextArea.Value="ÿÿÿÿÿÿÿ"+filename;
+            app.TextArea.Value="æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
 
         % Menu selected function: xMenu
@@ -987,7 +987,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             end
             filename = fullfile(path,file);
             xlswrite(filename,A);
-            app.TextArea.Value="ÿÿÿÿÿÿÿ"+filename;
+            app.TextArea.Value="æ•°æ®å·²ä¿å­˜åœ¨ï¼š"+filename;
         end
     end
 
@@ -1010,51 +1010,51 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             % Create MenuSave
             app.MenuSave = uimenu(app.HomeMenu);
             app.MenuSave.MenuSelectedFcn = createCallbackFcn(app, @MenuSaveSelected, true);
-            app.MenuSave.Text = 'ÿÿÿÿ';
+            app.MenuSave.Text = 'ä¿å­˜ç»“æœ';
 
             % Create Menu_2
             app.Menu_2 = uimenu(app.HomeMenu);
             app.Menu_2.MenuSelectedFcn = createCallbackFcn(app, @Menu_2Selected, true);
-            app.Menu_2.Text = 'ÿÿÿÿ';
+            app.Menu_2.Text = 'ä¿å­˜å›¾åƒ';
 
             % Create Menu_8
             app.Menu_8 = uimenu(app.HomeMenu);
             app.Menu_8.MenuSelectedFcn = createCallbackFcn(app, @Menu_8Selected, true);
-            app.Menu_8.Text = 'ÿÿÿÿÿ';
+            app.Menu_8.Text = 'ä¿å­˜è¾¹æ•°æ®';
 
             % Create Menu_9
             app.Menu_9 = uimenu(app.HomeMenu);
             app.Menu_9.MenuSelectedFcn = createCallbackFcn(app, @Menu_9Selected, true);
-            app.Menu_9.Text = 'ÿÿÿÿÿ';
+            app.Menu_9.Text = 'ä¿å­˜è§’æ•°æ®';
 
             % Create Menu_10
             app.Menu_10 = uimenu(app.HomeMenu);
-            app.Menu_10.Text = 'ÿÿÿÿÿÿ';
+            app.Menu_10.Text = 'ä¿å­˜ä¸­é—´æ•°æ®';
 
             % Create BMenu
             app.BMenu = uimenu(app.Menu_10);
             app.BMenu.MenuSelectedFcn = createCallbackFcn(app, @BMenuSelected, true);
-            app.BMenu.Text = 'ÿÿB';
+            app.BMenu.Text = 'ä¿å­˜B';
 
             % Create PMenu
             app.PMenu = uimenu(app.Menu_10);
             app.PMenu.MenuSelectedFcn = createCallbackFcn(app, @PMenuSelected, true);
-            app.PMenu.Text = 'ÿÿP';
+            app.PMenu.Text = 'ä¿å­˜P';
 
             % Create lMenu
             app.lMenu = uimenu(app.Menu_10);
             app.lMenu.MenuSelectedFcn = createCallbackFcn(app, @lMenuSelected, true);
-            app.lMenu.Text = 'ÿÿl';
+            app.lMenu.Text = 'ä¿å­˜l';
 
             % Create VMenu
             app.VMenu = uimenu(app.Menu_10);
             app.VMenu.MenuSelectedFcn = createCallbackFcn(app, @VMenuSelected, true);
-            app.VMenu.Text = 'ÿÿV';
+            app.VMenu.Text = 'ä¿å­˜V';
 
             % Create xMenu
             app.xMenu = uimenu(app.Menu_10);
             app.xMenu.MenuSelectedFcn = createCallbackFcn(app, @xMenuSelected, true);
-            app.xMenu.Text = 'ÿÿx';
+            app.xMenu.Text = 'ä¿å­˜x';
 
             % Create HelpMenu
             app.HelpMenu = uimenu(app.ErrorAjustment);
@@ -1063,12 +1063,12 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             % Create Menu_4
             app.Menu_4 = uimenu(app.HelpMenu);
             app.Menu_4.MenuSelectedFcn = createCallbackFcn(app, @Menu_4Selected, true);
-            app.Menu_4.Text = 'ÿÿÿÿ';
+            app.Menu_4.Text = 'ç¨‹åºè¯´æ˜';
 
             % Create Menu_5
             app.Menu_5 = uimenu(app.HelpMenu);
             app.Menu_5.MenuSelectedFcn = createCallbackFcn(app, @Menu_5Selected, true);
-            app.Menu_5.Text = 'ÿÿÿÿ';
+            app.Menu_5.Text = 'åé¦ˆé—®é¢˜';
 
             % Create AboutMenu
             app.AboutMenu = uimenu(app.ErrorAjustment);
@@ -1077,12 +1077,12 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             % Create Menu_6
             app.Menu_6 = uimenu(app.AboutMenu);
             app.Menu_6.MenuSelectedFcn = createCallbackFcn(app, @Menu_6Selected, true);
-            app.Menu_6.Text = 'ÿÿÿÿ';
+            app.Menu_6.Text = 'ç‰ˆæƒè¯´æ˜';
 
             % Create Menu_7
             app.Menu_7 = uimenu(app.AboutMenu);
             app.Menu_7.MenuSelectedFcn = createCallbackFcn(app, @Menu_7Selected, true);
-            app.Menu_7.Text = 'ÿÿÿÿ';
+            app.Menu_7.Text = 'åˆä½œè”ç³»';
 
             % Create computeButton
             app.computeButton = uibutton(app.ErrorAjustment, 'push');
@@ -1091,7 +1091,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.computeButton.FontWeight = 'bold';
             app.computeButton.FontColor = [0 0 1];
             app.computeButton.Position = [29 349 492 36];
-            app.computeButton.Text = 'ÿÿÿÿ';
+            app.computeButton.Text = 'å¹³å·®è®¡ç®—';
 
             % Create Label
             app.Label = uilabel(app.ErrorAjustment);
@@ -1099,7 +1099,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.Label.FontSize = 16;
             app.Label.FontWeight = 'bold';
             app.Label.Position = [29 314 494 22];
-            app.Label.Text = 'ÿÿÿÿ';
+            app.Label.Text = 'ç»“æœæ˜¾ç¤º';
 
             % Create TextArea
             app.TextArea = uitextarea(app.ErrorAjustment);
@@ -1112,7 +1112,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.EditField_3Label.FontSize = 14;
             app.EditField_3Label.FontWeight = 'bold';
             app.EditField_3Label.Position = [27 431 75 22];
-            app.EditField_3Label.Text = 'ÿÿÿÿÿ';
+            app.EditField_3Label.Text = 'å·²çŸ¥ç‚¹ç‚¹å·';
 
             % Create A1EditField
             app.A1EditField = uieditfield(app.ErrorAjustment, 'numeric');
@@ -1125,7 +1125,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.EditField_4Label.FontSize = 14;
             app.EditField_4Label.FontWeight = 'bold';
             app.EditField_4Label.Position = [28 393 75 22];
-            app.EditField_4Label.Text = 'ÿÿÿÿÿ';
+            app.EditField_4Label.Text = 'å·²çŸ¥ç‚¹ç‚¹å·';
 
             % Create A2EditField
             app.A2EditField = uieditfield(app.ErrorAjustment, 'numeric');
@@ -1186,7 +1186,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
 
             % Create UIAxes
             app.UIAxes = uiaxes(app.ErrorAjustment);
-            title(app.UIAxes, 'ÿÿÿÿÿÿ ÿÿm')
+            title(app.UIAxes, 'å¯¼çº¿ç½‘ç¤ºæ„å›¾ å•ä½m')
             xlabel(app.UIAxes, 'Y')
             ylabel(app.UIAxes, 'X')
             app.UIAxes.TitleFontWeight = 'bold';
@@ -1197,14 +1197,14 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.bianButton.ButtonPushedFcn = createCallbackFcn(app, @bianButtonPushed, true);
             app.bianButton.FontWeight = 'bold';
             app.bianButton.Position = [48 494 199 24];
-            app.bianButton.Text = 'ÿÿÿÿÿ';
+            app.bianButton.Text = 'è¯»å…¥è¾¹æ•°æ®';
 
             % Create jiaoButton
             app.jiaoButton = uibutton(app.ErrorAjustment, 'push');
             app.jiaoButton.ButtonPushedFcn = createCallbackFcn(app, @jiaoButtonPushed, true);
             app.jiaoButton.FontWeight = 'bold';
             app.jiaoButton.Position = [320 494 201 24];
-            app.jiaoButton.Text = 'ÿÿÿÿÿ';
+            app.jiaoButton.Text = 'è¯»å…¥è§’æ•°æ®';
 
             % Create bianLamp
             app.bianLamp = uilamp(app.ErrorAjustment);
@@ -1232,7 +1232,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.Label_2.FontSize = 14;
             app.Label_2.FontWeight = 'bold';
             app.Label_2.Position = [301 694 220 22];
-            app.Label_2.Text = 'ÿÿÿÿÿÿÿÿÿÿ';
+            app.Label_2.Text = 'è¯·å°†è§’æ•°æ®ç²˜è´´åœ¨è¿™é‡Œ';
 
             % Create jiaosrcTextArea
             app.jiaosrcTextArea = uitextarea(app.ErrorAjustment);
@@ -1245,7 +1245,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.Label_3.FontSize = 14;
             app.Label_3.FontWeight = 'bold';
             app.Label_3.Position = [27 694 220 22];
-            app.Label_3.Text = 'ÿÿÿÿÿÿÿÿÿÿ';
+            app.Label_3.Text = 'è¯·å°†è¾¹æ•°æ®ç²˜è´´åœ¨è¿™é‡Œ';
 
             % Create biansrcTextArea
             app.biansrcTextArea = uitextarea(app.ErrorAjustment);
@@ -1315,7 +1315,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.Label_4.HorizontalAlignment = 'right';
             app.Label_4.FontWeight = 'bold';
             app.Label_4.Position = [797 314 137 22];
-            app.Label_4.Text = 'ÿÿÿÿÿÿÿÿÿÿÿ';
+            app.Label_4.Text = 'é€‰æ‹©ä¸­é—´æ•°æ®æ‰€åœ¨çš„æ¬¡æ•°';
 
             % Create Spinner
             app.Spinner = uispinner(app.ErrorAjustment);
@@ -1329,7 +1329,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
             app.Label_5.HorizontalAlignment = 'right';
             app.Label_5.FontWeight = 'bold';
             app.Label_5.Position = [581 314 113 22];
-            app.Label_5.Text = 'ÿÿÿÿÿÿÿÿÿ';
+            app.Label_5.Text = 'å¹³å·®è®¡ç®—æ€»è¿­ä»£æ¬¡æ•°';
 
             % Create EditFieldCount
             app.EditFieldCount = uieditfield(app.ErrorAjustment, 'numeric');
@@ -1346,7 +1346,7 @@ classdef daoxianwang_exported < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-        function app = daoxianwang_exported
+        function app = daoxianwang
 
             % Create UIFigure and components
             createComponents(app)
